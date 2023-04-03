@@ -9,9 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(films => {
 
 // Adds full movie list to the left side of the page
-        const movieList = document.createElement('ul');
-        movieList.id = 'films';
-        movieList.classList.add('movie-list');
+       // const movieList = document.createElement('ul');
+       // movieList.id = 'films';
+       // movieList.classList.add('movie-list');
+const movieList = document.getElementById('films')
+
   // add each title to list and add event listener 
         films.forEach(film => {
           const li = document.createElement('li');
@@ -52,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   .then(res => res.json())
                   .then(updatedFilm => {
                     console.log('Updated film:', updatedFilm);
-                    
+
                     // Update availableTickets on frontend
                     availableTicketsSpan.textContent = updatedFilm.capacity - updatedFilm.tickets_sold;
                   })
